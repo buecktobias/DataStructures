@@ -39,7 +39,9 @@ public class BinaryTree<T> {
     }
 
     public int getDepth(){
-        return Math.max(this.leftChild.getDepth(), this.rightChild.getDepth()) + 1;
+        int leftChildDepth = hasLeftChild() ? this.getLeftChild().getDepth() :0;
+        int rightChildDepth = hasRightChild() ? this.getRightChild().getDepth() :0;
+        return Math.max(leftChildDepth, rightChildDepth) + 1;
     }
 
     @Override

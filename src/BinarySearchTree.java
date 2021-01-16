@@ -26,7 +26,7 @@ public class BinarySearchTree <T extends Comparable<T>> extends BinaryTree<T>{
         this.insert(new BinarySearchTree<>(value));
     }
 
-    private void insert(BinarySearchTree<T> newTree){
+    public void insert(BinarySearchTree<T> newTree){
         T value = newTree.getValue();
         if(value.compareTo(this.getValue()) > 0){
             if (this.hasLeftChild()) {
