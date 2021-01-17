@@ -12,6 +12,20 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
         return rightChildDepth -leftChildDepth;
     }
 
+    public void reBalance(){
+        if(this.getBalanceFactor() == 2){
+            this.leftRotate();
+        }
+    }
+
+    public void leftRotate(){
+        AVLTree<T> X = this;
+        AVLTree<T> Z = (AVLTree<T>) X.getRightChild();
+        AVLTree<T> t23 = (AVLTree<T>) Z.getLeftChild();
+        X.setRightChild(t23);
+        Z.setLeftChild(X);
+
+    }
     public void insert(BinarySearchTree<T> newTree){
         T value = newTree.getValue();
         if(value.compareTo(this.getValue()) > 0){
